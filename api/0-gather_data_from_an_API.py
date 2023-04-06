@@ -28,11 +28,12 @@ def fuc_to_do(emp_id=0):
         if task_info['completed'] is False and task_info['userId'] == emp_id:
             task_imcompleted += 1
     total_tasks = task_completed + task_imcompleted
-    s = "Employee {} is done with tasks({}/{}):".format(
+    s = "Employee {} is done with tasks({}/{}) :".format(
         emp_name, task_completed, total_tasks)
     print(s)
     for tasks in list_of_tasks:
-        print(tasks, sep='\n')
+        print(end='\t ')
+        print(tasks)
 
 
 if __name__ == "__main__":

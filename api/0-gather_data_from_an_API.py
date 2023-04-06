@@ -1,5 +1,5 @@
-#!/usr/bin/pyhton3
-""""""
+#!/usr/bin/python3
+"""learning how to consume an api"""
 import requests
 import json
 import sys

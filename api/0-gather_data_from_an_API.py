@@ -24,8 +24,6 @@ def fuc_to_do(emp_id=0):
     task_completed = 0
     task_imcompleted = 0
     for task_info in all_tasks_content_to_json:
-        # if task_info['userId'] == emp_id:
-        #    list_of_tasks.append(task_info['title'])
         if task_info['completed'] is True and task_info['userId'] == emp_id:
             list_of_tasks.append(task_info['title'])
 #            print(task_info)
@@ -35,7 +33,6 @@ def fuc_to_do(emp_id=0):
     total_tasks = task_completed + task_imcompleted
 #   print(task_completed, task_imcompleted)
 #   print(list_of_tasks)
-    list_of_tasks.sort()
     s = "Employee {} is done with tasks({}/{}):".format(
         emp_name, task_completed, total_tasks)
     print(s)

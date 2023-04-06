@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """learning how to consume an api"""
 
-import requests
 import json
+import requests
 import sys
 
 
@@ -10,12 +10,13 @@ def fuc_to_do(emp_id=0):
 
     if len(sys.argv) == 1:
         return
-    emp_id = int(sys.argv[1]) - 1
+    emp_id = int(sys.argv[1])
     usr = requests.get('https://jsonplaceholder.typicode.com/users')
     usr_content = usr.content
     usr_content_to_json = json.loads(usr_content)
-    emp_name = usr_content_to_json[emp_id]['name']
-    # print(usr_content_to_json[0])print(emp_name)
+    emp_name = usr_content_to_json[emp_id - 1]['name']
+#    print(usr_content_to_json[emp_id])
+#    print(emp_name)
     all_tasks = requests.get('https://jsonplaceholder.typicode.com/todos')
     all_tasks_content = all_tasks.content
     all_tasks_content_to_json = json.loads(all_tasks_content)
@@ -27,6 +28,7 @@ def fuc_to_do(emp_id=0):
         #    list_of_tasks.append(task_info['title'])
         if task_info['completed'] is True and task_info['userId'] == emp_id:
             list_of_tasks.append(task_info['title'])
+#            print(task_info)
             task_completed += 1
         if task_info['completed'] is False and task_info['userId'] == emp_id:
             task_imcompleted += 1

@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """learning how to consume an api"""
 
+import csv
 import json
 import requests
 import sys
@@ -35,6 +36,15 @@ def fuc_to_do(emp_id=0):
     for list in list_of_tasks:
         print('\t', end=" ")
         print(list)
+    emp_id += 1
+    with open('{}.csv'.format(emp_id),
+              'w+', encoding='UTF8', newline='') as f:
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+        for task_info in all_tasks_content_to_json:
+            if task_info['userId'] == emp_id:
+                writer.writerow(
+                    [str(emp_id), emp_name, str(task_info['completed']),
+                     task_info['title']])
 
 
 if __name__ == "__main__":

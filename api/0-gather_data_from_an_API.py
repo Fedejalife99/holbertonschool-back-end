@@ -22,6 +22,7 @@ def fuc_to_do(emp_id=0):
     list_of_tasks = []
     task_completed = 0
     task_imcompleted = 0
+    print(usr_content_to_json)
     user_name = usr_content_to_json[emp_id]['username']
     print(user_name)
     for task_info in all_tasks_content_to_json:

@@ -53,7 +53,6 @@ def fuc_to_do(emp_id=0):
                 'completed': task_info['completed'],
                 'username': user_name,
             })
-
             print(ids)
         ids = usr_content_to_json[int(cnt)]['id']
     json.dump(dict_to_json, f)

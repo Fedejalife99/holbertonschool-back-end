@@ -22,6 +22,8 @@ def fuc_to_do(emp_id=0):
     list_of_tasks = []
     task_completed = 0
     task_imcompleted = 0
+    user_name = usr_content_to_json[emp_id]['username']
+    print(user_name)
     for task_info in all_tasks_content_to_json:
         if task_info['completed'] is True and task_info['userId'] == emp_id:
             list_of_tasks.append(format(task_info['title']))
